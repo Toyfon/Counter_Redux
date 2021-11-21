@@ -1,0 +1,14 @@
+.Wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: darkturquoise;
+    min-height: 100vh;
+}
+
+.table {
+
+    margin: 30px;
+}
+
