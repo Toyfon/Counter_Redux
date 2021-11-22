@@ -42,6 +42,7 @@ export const Settings = () => {
             <div className={s.value}>
                 <div className={s.maxInput}>
                 <span>max value:
+                   {/* <TextField  type="number" value={maxValue} onChange={(e)=>onChangeMaxNumberHandler(+e.currentTarget.value)}  error={error}/>*/}
                     <Input value={maxValue}
                            callBack={onChangeMaxNumberHandler}
                            error={error}

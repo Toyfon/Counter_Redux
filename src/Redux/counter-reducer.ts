@@ -36,7 +36,7 @@ export const counterReducer = (state = initialState, action: ActionsType): initi
         case CHANGE_COUNT:
             return {...state, value: action.value, error: action.error}
         case RESET_COUNT:
-            return {...state, value: state.startValue, error: state.error}
+            return {...state, value: state.startValue}
         case CHANGE_MAX_VALUE:
             return {...state, maxValue: action.value, isDisabled: action.isDisabled, disableBtn: action.disableBtn}
         case CHANGE_START_VALUE:

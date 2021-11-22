@@ -73,11 +73,6 @@ export const Counter = () => {
                     sx={buttonStyle}
                     disabled={isDisabled ? isDisabled : value === startValue}
                     onClick={resetValue}>Reset</Button>
-                {/*<ButtonName className={s.btn} disabled={isDisabled ? isDisabled : value >= maxValue}
-                            onClick={incrementValue}
-                            name={"Inc"}/>*/}
-                {/* <ButtonName className={s.btn} disabled={isDisabled ? isDisabled : value === startValue} onClick={resetValue}
-                            name={"Reset"}/>*/}
             </div>
         </div>
     )
