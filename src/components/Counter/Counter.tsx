@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
-import {Button} from "../Button/Button";
 import s from "./counter.module.css"
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../Redux/redux-store";
 import {changeCountAC, resetCountAC, setErrorAC} from "../../Redux/actions";
+import {Button} from "@mui/material";
 
 
 export const Counter = () => {
@@ -14,6 +14,7 @@ export const Counter = () => {
     const error = useTypedSelector<boolean>(state => state.counter.error)
     const isDisabled = useTypedSelector<boolean>(state => state.counter.isDisabled)
 
+
     const dispatch = useDispatch()
 
 
@@ -22,18 +23,27 @@ export const Counter = () => {
             dispatch((changeCountAC(+value + 1, false)))
         }
     }
-
     const resetValue = () => {
         dispatch((resetCountAC()))
     }
 
+
+    const buttonStyle = {
+        backgroundColor: "darkturquoise", color: "white", borderRadius: "20px"
+    }
+
     useEffect(() => {
-        console.log(error)
+
         if (value === maxValue) {
             dispatch(setErrorAC(true))
         } else {
             dispatch(setErrorAC(false))
         }
+    }, [value])
+    console.log(error)
+
+    useEffect(() => {
+        localStorage.setItem('counterValue', JSON.stringify(value))
     }, [value])
 
 
@@ -49,11 +59,25 @@ export const Counter = () => {
                 </h1>
             </div>
             <div className={s.buttons}>
-                <Button className={s.btn} disabled={isDisabled ? isDisabled : value >= maxValue}
-                        onClick={incrementValue}
-                        name={"Inc"}/>
-                <Button className={s.btn} disabled={isDisabled ? isDisabled : value === startValue} onClick={resetValue}
-                        name={"Reset"}/>
+                <Button
+                    sx={buttonStyle}
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    disabled={isDisabled ? isDisabled : value >= maxValue}
+                    onClick={incrementValue}>Inc</Button>
+                <Button
+                    variant="contained"
+                    color="primary"
+                    size="small"
+                    sx={buttonStyle}
+                    disabled={isDisabled ? isDisabled : value === startValue}
+                    onClick={resetValue}>Reset</Button>
+                {/*<ButtonName className={s.btn} disabled={isDisabled ? isDisabled : value >= maxValue}
+                            onClick={incrementValue}
+                            name={"Inc"}/>*/}
+                {/* <ButtonName className={s.btn} disabled={isDisabled ? isDisabled : value === startValue} onClick={resetValue}
+                            name={"Reset"}/>*/}
             </div>
         </div>
     )

@@ -5,11 +5,24 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {Provider} from "react-redux";
 import store from '../src/Redux/redux-store'
+import {ThemeProvider, createTheme} from '@mui/material'
 
+
+
+const theme = createTheme({
+    palette: {
+        primary:{
+            main:'#61dafb'
+        }
+    }
+})
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+      <ThemeProvider theme={theme}>
+          <App />
+      </ThemeProvider>
+
   </Provider>,
 
   document.getElementById('root')

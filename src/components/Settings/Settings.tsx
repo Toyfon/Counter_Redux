@@ -1,12 +1,10 @@
 import React from "react";
 import s from './settings.module.css'
-import {Button} from "../Button/Button";
 import {Input} from "../Input/Input";
 import {useTypedSelector} from "../../Redux/redux-store";
 import {useDispatch} from "react-redux";
 import {changeMaxValueAC, changeStartValueAC, setErrorAC, setValueAC} from "../../Redux/actions";
-
-
+import {Button, TextField} from "@mui/material";
 
 
 export const Settings = () => {
@@ -22,16 +20,20 @@ export const Settings = () => {
 
     const callBackHandler = () => {
         dispatch(setValueAC(false, true, false))
+        localStorage.setItem('maxValue', JSON.stringify(maxValue))
+        localStorage.setItem('startValue', JSON.stringify(startValue))
     }
 
     const onChangeMaxNumberHandler = (value: number) => {
         dispatch(changeMaxValueAC(value, true, false))
         dispatch(setErrorAC(false))
-
     }
     const onChangeStartNumberHandler = (value: number) => {
         dispatch(changeStartValueAC(value, true, false))
         dispatch(setErrorAC(false))
+    }
+    const buttonStyle = {
+        backgroundColor: "darkturquoise", color: "white", borderRadius: "20px"
     }
 
 
@@ -60,7 +62,13 @@ export const Settings = () => {
                 </div>
             </div>
             <div className={s.buttons}>
-                <Button className={s.btn} onClick={callBackHandler} name={'Set'} disabled={disableBtn}/>
+                <Button variant="contained"
+                        color="primary"
+                        size="small"
+                        className={s.btn} disabled={disableBtn}
+                        sx={buttonStyle}
+                        onClick={callBackHandler}>Set</Button>
+                {/*    <ButtonName className={s.btn} onClick={callBackHandler} name={'Set'} disabled={disableBtn}/>*/}
             </div>
         </div>
     )

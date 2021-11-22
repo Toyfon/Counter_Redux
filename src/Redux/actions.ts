@@ -15,23 +15,20 @@ export type ActionsType = ReturnType<typeof changeCountAC> |
 
 
 export const changeCountAC = (value: number, error: boolean) => ({type: CHANGE_COUNT, value, error} as const)
-
 export const resetCountAC = () => ({type: RESET_COUNT} as const)
-
-export const changeMaxValueAC = (value: number, isDisabled: boolean, disableBtn: boolean) => ({
-    type: CHANGE_MAX_VALUE,
-    value, isDisabled, disableBtn
-} as const)
-
-export const changeStartValueAC = (value: number, isDisabled: boolean, disableBtn: boolean) => ({
-    type: CHANGE_START_VALUE,
-    value, isDisabled, disableBtn
-} as const)
-
+export const changeMaxValueAC = (value: number, isDisabled: boolean, disableBtn: boolean) => (
+    {
+        type: CHANGE_MAX_VALUE,
+        value, isDisabled, disableBtn
+    } as const)
+export const changeStartValueAC = (value: number, isDisabled: boolean, disableBtn: boolean) => (
+    {
+        type: CHANGE_START_VALUE,
+        value, isDisabled, disableBtn
+    } as const)
 export const setValueAC = (isDisabled: boolean, disableBtn: boolean, error: boolean) => ({
     type: SET_VALUE,
     isDisabled, disableBtn, error
 } as const)
-
 export const setErrorAC = (error: boolean) => ({type: SET_ERROR, error} as const)
 

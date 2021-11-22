@@ -4,7 +4,7 @@
     flex-direction: column;
     align-items: center;
     border: 1px solid white;
-    background-color: rgba(84,145,65,0.47);
+    background-color: rgba(84, 145, 65, 0.47);
     width: 300px;
     height: 200px;
     border-radius: 10px;
@@ -19,7 +19,7 @@
     margin: 15px 10px 10px;
     border-radius: 10px;
     border: 1px solid white;
-    background-color: rgba(171,168,141,0.47);
+    background-color: rgba(171, 168, 141, 0.47);
     box-shadow: 0px 1px 5px 2px white;
     color: white;
 }
@@ -30,8 +30,9 @@
 
 
 .maxInput {
-    margin-bottom: 10px;
-    text-align: center;
+    margin-bottom: 20px;
+    text-align: start;
+
 
 }
 
@@ -44,9 +45,10 @@
 }
 
 
-.minInput{
-    text-align: center;
+.minInput {
+    text-align: start;
 }
+
 .minInput input {
     margin-left: 39px;
     width: 100px;
@@ -63,23 +65,24 @@
     align-items: center;
     width: 250px;
     height: 60px;
-    border:1px solid white;
-    background-color: rgba(171,168,141,0.47);
+    border: 1px solid white;
+    background-color: rgba(171, 168, 141, 0.47);
     border-radius: 10px;
     box-shadow: 0px 1px 5px 2px white
 }
 
 .btn {
-    border: none;
     font-size: medium;
-    font-weight: bold;
+    font-weight: normal;
+
 }
 
 .error {
-    border:1px solid red;
+    border: 1px solid red;
 }
 
 .inputError {
     border: 1px solid red;
     outline: none;
 }
+

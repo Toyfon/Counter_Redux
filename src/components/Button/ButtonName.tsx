@@ -8,7 +8,7 @@ type ButtonType = {
 }
 
 // export const Button = ({callBack, name, disabled, classes, ...props}: ButtonType & ButtonHTMLAttributes<any>) => {
-export const Button = ({ name, ...props}: ButtonType & ButtonHTMLAttributes<any>) => {
+export const ButtonName = ({ name, ...props}: ButtonType & ButtonHTMLAttributes<any>) => {
 
     //
     // const onClickHandler = () => {

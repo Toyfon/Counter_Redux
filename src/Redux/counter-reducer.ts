@@ -17,11 +17,14 @@ export type initialStateType = {
     error: boolean
     disableBtn: boolean
 }
+let initialValue = localStorage.getItem('counterValue')
+let initialMaxValue = localStorage.getItem('maxValue')
+let initialStartValue = localStorage.getItem('startValue')
 
 export const initialState: initialStateType = {
-    value: 0,
-    startValue: 0,
-    maxValue: 5,
+    value: (initialValue !== null ? +initialValue : 0),
+    startValue: (initialStartValue !== null ? +initialStartValue : 0),
+    maxValue: (initialMaxValue !== null ? +initialMaxValue : 0),
     isDisabled: false,
     disableBtn: true,
     error: false
