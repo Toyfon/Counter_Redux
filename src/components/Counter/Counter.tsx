@@ -19,8 +19,10 @@ export const Counter = () => {
 
 
     const incrementValue = () => {
+
         if (!isNaN(+value) && value < maxValue) {
             dispatch((changeCountAC(+value + 1, false)))
+            localStorage.setItem('counterValue', JSON.stringify(value + 1))
         }
     }
     const resetValue = () => {
@@ -29,22 +31,21 @@ export const Counter = () => {
 
 
     const buttonStyle = {
-        backgroundColor: "darkturquoise", color: "white", borderRadius: "20px"
+        backgroundColor: "#C4DFE6", color: "white", borderRadius: "20px"
     }
 
     useEffect(() => {
-
         if (value === maxValue) {
             dispatch(setErrorAC(true))
         } else {
             dispatch(setErrorAC(false))
         }
     }, [value])
-    console.log(error)
 
-    useEffect(() => {
-        localStorage.setItem('counterValue', JSON.stringify(value))
-    }, [value])
+
+    // useEffect(() => {
+    //     localStorage.setItem('counterValue', JSON.stringify(value))
+    // }, [value])
 
 
     return (

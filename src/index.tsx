@@ -12,10 +12,12 @@ import {ThemeProvider, createTheme} from '@mui/material'
 const theme = createTheme({
     palette: {
         primary:{
-            main:'#61dafb'
-        }
+            main:'#66A5AD'
+        },
+
     }
 })
+
 
 ReactDOM.render(
   <Provider store={store}>

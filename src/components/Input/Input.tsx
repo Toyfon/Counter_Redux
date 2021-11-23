@@ -29,6 +29,7 @@ export const Input: React.FC<InputPropsType> = ({
                type="number"
                value={value}
                onChange={onChangeHandler}
+               {...props}
         />
     )
 }

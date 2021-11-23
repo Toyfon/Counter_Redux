@@ -11,24 +11,32 @@ export type ActionsType = ReturnType<typeof changeCountAC> |
     ReturnType<typeof changeMaxValueAC> |
     ReturnType<typeof changeStartValueAC> |
     ReturnType<typeof setValueAC> |
-    ReturnType<typeof setErrorAC>
+    ReturnType<typeof setErrorAC> |
+    ReturnType<typeof setInitialValuesAC>
 
 
-export const changeCountAC = (value: number, error: boolean) => ({type: CHANGE_COUNT, value, error} as const)
-export const resetCountAC = () => ({type: RESET_COUNT} as const)
+
+export const changeCountAC = (value: number, error: boolean) => ({type: 'CHANGE_COUNT', value, error} as const)
+export const resetCountAC = () => ({type: 'RESET_COUNT'} as const)
 export const changeMaxValueAC = (value: number, isDisabled: boolean, disableBtn: boolean) => (
     {
-        type: CHANGE_MAX_VALUE,
+        type: 'CHANGE_MAX_VALUE',
         value, isDisabled, disableBtn
     } as const)
 export const changeStartValueAC = (value: number, isDisabled: boolean, disableBtn: boolean) => (
     {
-        type: CHANGE_START_VALUE,
+        type: 'CHANGE_START_VALUE',
         value, isDisabled, disableBtn
     } as const)
 export const setValueAC = (isDisabled: boolean, disableBtn: boolean, error: boolean) => ({
-    type: SET_VALUE,
+    type: 'SET_VALUE',
     isDisabled, disableBtn, error
 } as const)
-export const setErrorAC = (error: boolean) => ({type: SET_ERROR, error} as const)
+export const setErrorAC = (error: boolean) => ({type: 'SET_ERROR', error} as const)
+export const setInitialValuesAC = (startValue: number, maxValue: number, value: number) => ({
+    type: 'SET_INITIAL_VALUES',
+    startValue,
+    maxValue,
+    value
+} as const)
 

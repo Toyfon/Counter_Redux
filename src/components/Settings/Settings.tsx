@@ -4,11 +4,10 @@ import {Input} from "../Input/Input";
 import {useTypedSelector} from "../../Redux/redux-store";
 import {useDispatch} from "react-redux";
 import {changeMaxValueAC, changeStartValueAC, setErrorAC, setValueAC} from "../../Redux/actions";
-import {Button, TextField} from "@mui/material";
+import {Button} from "@mui/material";
 
 
 export const Settings = () => {
-
 
     const disableBtn = useTypedSelector<boolean>(state => state.counter.disableBtn)
     const maxValue = useTypedSelector<number>(state => state.counter.maxValue)
@@ -18,10 +17,10 @@ export const Settings = () => {
     const dispatch = useDispatch()
 
 
-    const callBackHandler = () => {
+    const setSettingsHandler = () => {
         dispatch(setValueAC(false, true, false))
-        localStorage.setItem('maxValue', JSON.stringify(maxValue))
-        localStorage.setItem('startValue', JSON.stringify(startValue))
+        localStorage.setItem('Settings', JSON.stringify({ 'startValue':startValue,'maxValue':maxValue}))
+        /*localStorage.setItem('startValue', JSON.stringify(startValue))*/
     }
 
     const onChangeMaxNumberHandler = (value: number) => {
@@ -33,7 +32,7 @@ export const Settings = () => {
         dispatch(setErrorAC(false))
     }
     const buttonStyle = {
-        backgroundColor: "darkturquoise", color: "white", borderRadius: "20px"
+        backgroundColor: "#C4DFE6", color: "white", borderRadius: "20px"
     }
 
 
@@ -68,7 +67,7 @@ export const Settings = () => {
                         size="small"
                         className={s.btn} disabled={disableBtn}
                         sx={buttonStyle}
-                        onClick={callBackHandler}>Set</Button>
+                        onClick={setSettingsHandler}>Set</Button>
                 {/*    <ButtonName className={s.btn} onClick={callBackHandler} name={'Set'} disabled={disableBtn}/>*/}
             </div>
         </div>
