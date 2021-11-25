@@ -39,15 +39,15 @@ export const Settings = () => {
         backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
         boxShadow: "0px 1px 5px 2px #07575B"
     }
-
-    const errMaxValue = maxValue === startValue || startValue! > maxValue!
+//Посмотреть, почему не присваивается класс s.errValue
+    const errValue = maxValue === startValue || startValue! > maxValue! || startValue! < 0
     return (
         <div className={s.container}>
-            <div className={s.value}>
+            <div className={errValue? s.errValue: s.value}>
                 <div className={s.maxInput}>
                 <span>max value:
                     <TextField variant={"standard"}
-                               color={errMaxValue ? "error" : "primary"}
+                               color={ "primary"}
                                value={maxValue}
                                onChange={onChangeMaxNumberHandler}
                                type={"number"}
@@ -65,7 +65,7 @@ export const Settings = () => {
                 <div className={s.minInput}>
                     <span>start value:
                          <TextField variant={"standard"}
-                                    color={maxValue === startValue || startValue! < 0 || startValue! > maxValue! ? "error" : "primary"}
+                                    color={"primary"}
                                     value={startValue}
                                     onChange={onChangeStartNumberHandler}
                                     type={"number"}
