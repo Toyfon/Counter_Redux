@@ -8,7 +8,7 @@ import {Button} from "@mui/material";
 
 export const Counter = () => {
 
-    const value = useTypedSelector<number>(state => state.counter.value)
+    const value = useTypedSelector<number| string>(state => state.counter.value)
     const startValue = useTypedSelector<number>(state => state.counter.startValue)
     const maxValue = useTypedSelector<number>(state => state.counter.maxValue)
     const error = useTypedSelector<boolean>(state => state.counter.error)
@@ -21,7 +21,7 @@ export const Counter = () => {
     const incrementValue = () => {
         if (!isNaN(+value) && value < maxValue) {
             dispatch((changeCountAC(+value + 1, false)))
-            localStorage.setItem('counterValue', JSON.stringify(value + 1))
+            localStorage.setItem('counterValue', JSON.stringify(+value + 1))
         }
     }
     const resetValue = () => {
@@ -43,18 +43,15 @@ export const Counter = () => {
     }, [value])
 
 
-    // useEffect(() => {
-    //     localStorage.setItem('counterValue', JSON.stringify(value))
-    // }, [value])
-
+    const errorValues =  maxValue === startValue || startValue < 0 || startValue > maxValue
 
     return (
         <div className={s.container}>
-            <div className={s.value}>
-                <h1 className={error ? s.redNumber : ""}>
+            <div className={ error ? s.errValue :s.value}>
+                <h1 >
                     {
-                        maxValue === startValue || startValue < 0 || startValue > maxValue
-                            ? <span style={{color: "red", fontSize: "30px"}}>"Incorrect value"</span>
+                        errorValues
+                            ? <span  style={{color: "red", fontSize: "30px", fontWeight:'lighter', }}>Incorrect value</span>
                             :  value
 // <span style={{color: "white", fontSize: "30px"}}>"set value"</span>
                     }

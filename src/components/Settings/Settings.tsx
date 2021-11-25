@@ -12,6 +12,7 @@ export const Settings = () => {
     const disableBtn = useTypedSelector<boolean>(state => state.counter.disableBtn)
     const maxValue = useTypedSelector<number>(state => state.counter.maxValue)
     const startValue = useTypedSelector<number>(state => state.counter.startValue)
+    const error = useTypedSelector<boolean>(state => state.counter.error)
 
     const dispatch = useDispatch()
 
@@ -29,10 +30,7 @@ export const Settings = () => {
         dispatch(changeStartValueAC(value, true, false))
         dispatch(setErrorAC(false))
     }
-    const buttonStyle = {
-        backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
-        boxShadow: "0px 1px 5px 2px #07575B"
-    }
+
     const onChangeHandlerMax = (e: ChangeEvent<HTMLInputElement>) => {
         let value = e.currentTarget.valueAsNumber
         onChangeMaxNumberHandler(value)
@@ -42,9 +40,15 @@ export const Settings = () => {
         onChangeStartNumberHandler(value)
     }
 
+
+    const buttonStyle = {
+        backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
+        boxShadow: "0px 1px 5px 2px #07575B"
+    }
+
     return (
         <div className={s.container}>
-            <div className={s.value}>
+            <div className={ s.value}>
                 <div className={s.maxInput}>
                 <span>max value:
                     <TextField variant={"standard"}
@@ -59,11 +63,7 @@ export const Settings = () => {
                                    }
                                }}
                     />
-                    {/*   <Input value={maxValue}
-                           callBack={onChangeMaxNumberHandler}
-                           error={error}
-                           maxValue={maxValue}
-                           startValue={startValue}/>*/}
+
                 </span>
 
                 </div>
@@ -82,12 +82,6 @@ export const Settings = () => {
                                     }}
                          />
 
-                        {/*   <Input value={startValue}
-                              callBack={onChangeStartNumberHandler}
-                              error={error}
-                              maxValue={maxValue}
-                              startValue={startValue}
-                       />*/}
                 </span>
                 </div>
             </div>
@@ -98,7 +92,6 @@ export const Settings = () => {
                         className={s.btn} disabled={disableBtn}
                         sx={buttonStyle}
                         onClick={setSettingsHandler}>Set</Button>
-                {/*    <ButtonName className={s.btn} onClick={callBackHandler} name={'Set'} disabled={disableBtn}/>*/}
             </div>
         </div>
     )

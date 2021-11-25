@@ -2,7 +2,7 @@ import {ActionsType} from "./actions";
 
 
 export const initialState = {
-    value: 0,
+    value: 0 as number | string,
     startValue: 0,
     maxValue: 3,
     isDisabled: false,
@@ -12,7 +12,7 @@ export const initialState = {
 type initialStateType = typeof initialState
 
 
-export const counterReducer = (state = initialState, action: ActionsType): initialStateType => {
+export const counterReducer = (state :initialStateType = initialState, action: ActionsType): initialStateType => {
     switch (action.type) {
 
         case "SET_INITIAL_VALUES":
@@ -28,9 +28,9 @@ export const counterReducer = (state = initialState, action: ActionsType): initi
         case 'RESET_COUNT':
             return {...state, value: state.startValue}
         case 'CHANGE_MAX_VALUE':
-            return {...state, maxValue: action.value, isDisabled: action.isDisabled, disableBtn: action.disableBtn}
+            return {...state, maxValue: action.value, isDisabled: action.isDisabled, disableBtn: action.disableBtn, value:'enter values'}
         case 'CHANGE_START_VALUE':
-            return {...state, startValue: action.value, isDisabled: action.isDisabled, disableBtn: action.disableBtn}
+            return {...state, startValue: action.value, isDisabled: action.isDisabled, disableBtn: action.disableBtn, value:'enter values '}
         case 'SET_VALUE':
             return {
                 ...state,
