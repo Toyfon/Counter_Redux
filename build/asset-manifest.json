@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/Counter_Redux/static/css/main.93f92bcf.chunk.css",
-    "main.js": "/Counter_Redux/static/js/main.9590c1f2.chunk.js",
-    "main.js.map": "/Counter_Redux/static/js/main.9590c1f2.chunk.js.map",
+    "main.js": "/Counter_Redux/static/js/main.1d54b5e6.chunk.js",
+    "main.js.map": "/Counter_Redux/static/js/main.1d54b5e6.chunk.js.map",
     "runtime-main.js": "/Counter_Redux/static/js/runtime-main.fb8af220.js",
     "runtime-main.js.map": "/Counter_Redux/static/js/runtime-main.fb8af220.js.map",
-    "static/js/2.384131cf.chunk.js": "/Counter_Redux/static/js/2.384131cf.chunk.js",
-    "static/js/2.384131cf.chunk.js.map": "/Counter_Redux/static/js/2.384131cf.chunk.js.map",
+    "static/js/2.34633f15.chunk.js": "/Counter_Redux/static/js/2.34633f15.chunk.js",
+    "static/js/2.34633f15.chunk.js.map": "/Counter_Redux/static/js/2.34633f15.chunk.js.map",
     "static/js/3.3a4e3c45.chunk.js": "/Counter_Redux/static/js/3.3a4e3c45.chunk.js",
     "static/js/3.3a4e3c45.chunk.js.map": "/Counter_Redux/static/js/3.3a4e3c45.chunk.js.map",
     "index.html": "/Counter_Redux/index.html",
     "static/css/main.93f92bcf.chunk.css.map": "/Counter_Redux/static/css/main.93f92bcf.chunk.css.map",
-    "static/js/2.384131cf.chunk.js.LICENSE.txt": "/Counter_Redux/static/js/2.384131cf.chunk.js.LICENSE.txt"
+    "static/js/2.34633f15.chunk.js.LICENSE.txt": "/Counter_Redux/static/js/2.34633f15.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.fb8af220.js",
-    "static/js/2.384131cf.chunk.js",
+    "static/js/2.34633f15.chunk.js",
     "static/css/main.93f92bcf.chunk.css",
-    "static/js/main.9590c1f2.chunk.js"
+    "static/js/main.1d54b5e6.chunk.js"
   ]
 }

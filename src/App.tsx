@@ -4,6 +4,7 @@ import {Counter} from "./components/Counter/Counter";
 import {Settings} from "./components/Settings/Settings";
 import {useDispatch} from "react-redux";
 import {setInitialValuesAC} from "./Redux/actions";
+import {Container} from "@mui/material";
 
 
 const App = () => {
@@ -12,7 +13,7 @@ const App = () => {
     const dispatch = useDispatch()
 
 
-    useEffect( ()=> {
+    useEffect(() => {
         let initialValueAsString = localStorage.getItem('counterValue')
         let settingsAsString = localStorage.getItem('Settings')
         if (settingsAsString !== null && initialValueAsString !== null) {
@@ -21,15 +22,14 @@ const App = () => {
             dispatch(setInitialValuesAC(settings.startValue, settings.maxValue, initialValue))
         }
 
-    }, [] )
+    }, [])
 
     return (
-        <div className="Wrapper">
-
+        <div className="Wrapper" >
             <div className="table">
                 <Counter/>
             </div>
-            <div className="settings">
+            <div>
                 <Settings/>
             </div>
         </div>

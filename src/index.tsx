@@ -11,11 +11,11 @@ import {ThemeProvider, createTheme} from '@mui/material'
 
 const theme = createTheme({
     palette: {
-        primary:{
-            main:'#66A5AD'
-        },
-
-    }
+        primary: {
+            main: '#07575B',
+        }
+    },
+   /* shadows: ["none"]*/
 })
 
 

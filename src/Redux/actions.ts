@@ -30,7 +30,7 @@ export const changeStartValueAC = (value: number, isDisabled: boolean, disableBt
     } as const)
 export const setValueAC = (isDisabled: boolean, disableBtn: boolean, error: boolean) => ({
     type: 'SET_VALUE',
-    isDisabled, disableBtn, error
+    isDisabled, disableBtn, error,
 } as const)
 export const setErrorAC = (error: boolean) => ({type: 'SET_ERROR', error} as const)
 export const setInitialValuesAC = (startValue: number, maxValue: number, value: number) => ({

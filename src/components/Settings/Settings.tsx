@@ -1,26 +1,24 @@
-import React from "react";
+import React, {ChangeEvent} from "react";
 import s from './settings.module.css'
-import {Input} from "../Input/Input";
 import {useTypedSelector} from "../../Redux/redux-store";
 import {useDispatch} from "react-redux";
 import {changeMaxValueAC, changeStartValueAC, setErrorAC, setValueAC} from "../../Redux/actions";
-import {Button} from "@mui/material";
+import {Button, TextField} from "@mui/material";
 
 
 export const Settings = () => {
 
+
     const disableBtn = useTypedSelector<boolean>(state => state.counter.disableBtn)
     const maxValue = useTypedSelector<number>(state => state.counter.maxValue)
     const startValue = useTypedSelector<number>(state => state.counter.startValue)
-    const error = useTypedSelector<boolean>(state => state.counter.error)
 
     const dispatch = useDispatch()
 
 
     const setSettingsHandler = () => {
         dispatch(setValueAC(false, true, false))
-        localStorage.setItem('Settings', JSON.stringify({ 'startValue':startValue,'maxValue':maxValue}))
-        /*localStorage.setItem('startValue', JSON.stringify(startValue))*/
+        localStorage.setItem('Settings', JSON.stringify({'startValue': startValue, 'maxValue': maxValue}))
     }
 
     const onChangeMaxNumberHandler = (value: number) => {
@@ -32,32 +30,64 @@ export const Settings = () => {
         dispatch(setErrorAC(false))
     }
     const buttonStyle = {
-        backgroundColor: "#C4DFE6", color: "white", borderRadius: "20px"
+        backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
+        boxShadow: "0px 1px 5px 2px #07575B"
     }
-
+    const onChangeHandlerMax = (e: ChangeEvent<HTMLInputElement>) => {
+        let value = e.currentTarget.valueAsNumber
+        onChangeMaxNumberHandler(value)
+    }
+    const onChangeHandlerStart = (e: ChangeEvent<HTMLInputElement>) => {
+        let value = e.currentTarget.valueAsNumber
+        onChangeStartNumberHandler(value)
+    }
 
     return (
         <div className={s.container}>
             <div className={s.value}>
                 <div className={s.maxInput}>
                 <span>max value:
-                   {/* <TextField  type="number" value={maxValue} onChange={(e)=>onChangeMaxNumberHandler(+e.currentTarget.value)}  error={error}/>*/}
-                    <Input value={maxValue}
+                    <TextField variant={"standard"}
+                               color={maxValue === startValue || startValue! > maxValue! ? "error" : "primary"}
+                               value={maxValue}
+                               onChange={onChangeHandlerMax}
+                               type={"number"}
+                               sx={{
+                                   input: {
+                                       width: "100px",
+                                       height: "15px"
+                                   }
+                               }}
+                    />
+                    {/*   <Input value={maxValue}
                            callBack={onChangeMaxNumberHandler}
                            error={error}
                            maxValue={maxValue}
-                           startValue={startValue}/>
+                           startValue={startValue}/>*/}
                 </span>
 
                 </div>
                 <div className={s.minInput}>
                     <span>start value:
-                       <Input value={startValue}
+                         <TextField variant={"standard"}
+                                    color={maxValue === startValue || startValue! < 0 || startValue! > maxValue! ? "error" : "primary"}
+                                    value={startValue}
+                                    onChange={onChangeHandlerStart}
+                                    type={"number"}
+                                    sx={{
+                                        input: {
+                                            width: "100px",
+                                            height: "15px"
+                                        }
+                                    }}
+                         />
+
+                        {/*   <Input value={startValue}
                               callBack={onChangeStartNumberHandler}
                               error={error}
                               maxValue={maxValue}
                               startValue={startValue}
-                       />
+                       />*/}
                 </span>
                 </div>
             </div>
