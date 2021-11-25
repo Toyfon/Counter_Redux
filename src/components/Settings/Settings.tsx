@@ -2,8 +2,9 @@ import React, {ChangeEvent} from "react";
 import s from './settings.module.css'
 import {useTypedSelector} from "../../Redux/redux-store";
 import {useDispatch} from "react-redux";
-import {changeMaxValueAC, changeStartValueAC, setErrorAC, setValueAC} from "../../Redux/actions";
+
 import {Button, TextField} from "@mui/material";
+import {changeMaxValueAC, changeStartValueAC, setErrorAC, setValueAC} from "../../Redux/counter-reducer";
 
 
 export const Settings = () => {
@@ -12,7 +13,7 @@ export const Settings = () => {
     const disableBtn = useTypedSelector<boolean>(state => state.counter.disableBtn)
     const maxValue = useTypedSelector<number>(state => state.counter.maxValue)
     const startValue = useTypedSelector<number>(state => state.counter.startValue)
-    const error = useTypedSelector<boolean>(state => state.counter.error)
+
 
     const dispatch = useDispatch()
 

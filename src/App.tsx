@@ -3,8 +3,8 @@ import './App.css';
 import {Counter} from "./components/Counter/Counter";
 import {Settings} from "./components/Settings/Settings";
 import {useDispatch} from "react-redux";
-import {setInitialValuesAC} from "./Redux/actions";
-import {Container} from "@mui/material";
+import {setInitialValuesAC} from "./Redux/counter-reducer";
+
 
 
 const App = () => {

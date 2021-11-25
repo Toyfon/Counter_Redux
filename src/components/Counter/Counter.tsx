@@ -2,8 +2,9 @@ import React, {useEffect} from "react";
 import s from "./counter.module.css"
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../Redux/redux-store";
-import {changeCountAC, resetCountAC, setErrorAC} from "../../Redux/actions";
+
 import {Button} from "@mui/material";
+import {changeCountAC, resetCountAC, setErrorAC} from "../../Redux/counter-reducer";
 
 
 export const Counter = () => {
