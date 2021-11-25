@@ -39,11 +39,11 @@ export const Settings = () => {
         backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
         boxShadow: "0px 1px 5px 2px #07575B"
     }
-//Посмотреть, почему не присваивается класс s.errValue
+
     const errMaxValue = maxValue === startValue || startValue! > maxValue!
     return (
         <div className={s.container}>
-            <div className={errMaxValue? s.errValue: s.value}>
+            <div className={s.value}>
                 <div className={s.maxInput}>
                 <span>max value:
                     <TextField variant={"standard"}
