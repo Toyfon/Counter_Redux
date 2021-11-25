@@ -2,7 +2,6 @@ import React, {ChangeEvent} from "react";
 import s from './settings.module.css'
 import {useTypedSelector} from "../../Redux/redux-store";
 import {useDispatch} from "react-redux";
-
 import {Button, TextField} from "@mui/material";
 import {changeMaxValueAC, changeStartValueAC, setErrorAC, setValueAC} from "../../Redux/counter-reducer";
 
@@ -23,39 +22,34 @@ export const Settings = () => {
         localStorage.setItem('Settings', JSON.stringify({'startValue': startValue, 'maxValue': maxValue}))
     }
 
-    const onChangeMaxNumberHandler = (value: number) => {
+    const onChangeMaxNumberHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        let value = e.currentTarget.valueAsNumber
         dispatch(changeMaxValueAC(value, true, false))
         dispatch(setErrorAC(false))
     }
-    const onChangeStartNumberHandler = (value: number) => {
+    const onChangeStartNumberHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        let value = e.currentTarget.valueAsNumber
         dispatch(changeStartValueAC(value, true, false))
         dispatch(setErrorAC(false))
     }
 
-    const onChangeHandlerMax = (e: ChangeEvent<HTMLInputElement>) => {
-        let value = e.currentTarget.valueAsNumber
-        onChangeMaxNumberHandler(value)
-    }
-    const onChangeHandlerStart = (e: ChangeEvent<HTMLInputElement>) => {
-        let value = e.currentTarget.valueAsNumber
-        onChangeStartNumberHandler(value)
-    }
 
 
     const buttonStyle = {
         backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
         boxShadow: "0px 1px 5px 2px #07575B"
     }
-
+//Посмотреть, почему не присваивается класс s.errValue
+    const errMaxValue = maxValue === startValue || startValue! > maxValue!
     return (
         <div className={s.container}>
-            <div className={ s.value}>
+            <div className={errMaxValue? s.errValue: s.value}>
                 <div className={s.maxInput}>
                 <span>max value:
                     <TextField variant={"standard"}
-                               color={maxValue === startValue || startValue! > maxValue! ? "error" : "primary"}
+                               color={errMaxValue ? "error" : "primary"}
                                value={maxValue}
-                               onChange={onChangeHandlerMax}
+                               onChange={onChangeMaxNumberHandler}
                                type={"number"}
                                sx={{
                                    input: {
@@ -73,7 +67,7 @@ export const Settings = () => {
                          <TextField variant={"standard"}
                                     color={maxValue === startValue || startValue! < 0 || startValue! > maxValue! ? "error" : "primary"}
                                     value={startValue}
-                                    onChange={onChangeHandlerStart}
+                                    onChange={onChangeStartNumberHandler}
                                     type={"number"}
                                     sx={{
                                         input: {

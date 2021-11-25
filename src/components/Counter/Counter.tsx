@@ -54,7 +54,6 @@ export const Counter = () => {
                         errorValues
                             ? <span  style={{color: "red", fontSize: "30px", fontWeight:'lighter', }}>Incorrect value</span>
                             :  value
-// <span style={{color: "white", fontSize: "30px"}}>"set value"</span>
                     }
                 </h1>
             </div>
