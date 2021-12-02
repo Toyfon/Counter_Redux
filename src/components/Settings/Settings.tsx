@@ -39,7 +39,7 @@ export const Settings = () => {
         backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
         boxShadow: "0px 1px 5px 2px #07575B"
     }
-//Посмотреть, почему не присваивается класс s.errValue
+
     const errValue = maxValue === startValue || startValue! > maxValue! || startValue! < 0
     return (
         <div className={s.container}>
@@ -53,8 +53,9 @@ export const Settings = () => {
                                type={"number"}
                                sx={{
                                    input: {
-                                       width: "100px",
-                                       height: "15px"
+                                       width: "60px",
+                                       height: "15px",
+
                                    }
                                }}
                     />
@@ -71,7 +72,7 @@ export const Settings = () => {
                                     type={"number"}
                                     sx={{
                                         input: {
-                                            width: "100px",
+                                            width: "60px",
                                             height: "15px"
                                         }
                                     }}

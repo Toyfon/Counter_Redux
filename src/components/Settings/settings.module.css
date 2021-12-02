@@ -27,25 +27,25 @@
 }
 
 .value span {
-    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    text-align: center;
 }
 
 
 .maxInput {
     margin-bottom: 20px;
     margin-left: 10px;
-  /*  text-align: start;*/
 }
 
 .maxInput input {
     margin-left: 41px;
-    width: 100px;
     text-align: center;
     color:  #66A5AD;
 }
 
 .minInput {
-    /*text-align: start;*/
     margin-left: 10px;
 }
 
@@ -89,5 +89,8 @@
 }*/
 
 .errValue span {
-    margin-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+    text-align: center;
 }

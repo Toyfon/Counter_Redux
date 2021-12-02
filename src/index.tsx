@@ -15,7 +15,6 @@ const theme = createTheme({
             main: '#07575B',
         }
     },
-   /* shadows: ["none"]*/
 })
 
 

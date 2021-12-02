@@ -9,7 +9,8 @@ let rootReducer = combineReducers({
     counter: counterReducer
 })
 
-// let store: Store<AppStateType, any> = createStore(rootReducer)
+
+
 let store = createStore(rootReducer)
 export type AppStoreType= typeof store
 

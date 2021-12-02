@@ -15,10 +15,10 @@ export const initialState = {
     disableBtn: true,
     error: false
 }
-type initialStateType = typeof initialState
+type InitialStateType = typeof initialState
 
 
-export const counterReducer = (state: initialStateType = initialState, action: ActionsType): initialStateType => {
+export const counterReducer = (state: InitialStateType = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
 
         case "SET_INITIAL_VALUES":
