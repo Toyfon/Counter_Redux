@@ -20,7 +20,7 @@ export const Counter = () => {
 
 
     const incrementValue = () => {
-        if (!isNaN(+value) && value < maxValue) {
+        if (value < maxValue) {
             dispatch((changeCountAC(+value + 1, false)))
             localStorage.setItem('counterValue', JSON.stringify(+value + 1))
         }

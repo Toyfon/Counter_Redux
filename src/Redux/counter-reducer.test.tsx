@@ -15,7 +15,7 @@ beforeEach(() => {
 
 test('reducer should be  change value', () => {
     //action
-const newState = counterReducer(state, {type:'CHANGE_COUNT', value: 1, error: false})
+const newState = counterReducer(state, {type:'CHANGE_COUNT', payload:{value: 1, error: false}})
 expect(newState.value).toBe(1)
 expect(newState.error).toBe(false)
 })
@@ -30,7 +30,7 @@ test('reducer should reset value', () => {
 
 test('reducer should change maxValue', () => {
     //action
-    const newState = counterReducer(state, {type:'CHANGE_MAX_VALUE',value: 10,disableBtn: true,isDisabled: false })
+    const newState = counterReducer(state, {type:'CHANGE_MAX_VALUE',payload:{value: 10,disableBtn: true,isDisabled: false} })
     expect(newState.maxValue).toBe(10)
     expect(newState.disableBtn).toBe(true)
     expect(newState.isDisabled).toBe(false)
@@ -39,7 +39,7 @@ test('reducer should change maxValue', () => {
 
 test('reducer should change startValue', () => {
     //action
-    const newState = counterReducer(state, {type:'CHANGE_START_VALUE',value: 5,disableBtn: true, isDisabled: false})
+    const newState = counterReducer(state, {type:'CHANGE_START_VALUE',payload:{value: 5,disableBtn: true, isDisabled: false}})
 
     expect(newState.startValue).toBe(5)
     expect(newState.disableBtn).toBe(true)
@@ -49,7 +49,7 @@ test('reducer should change startValue', () => {
 
 test('reducer should disable button, when click "set" button', () => {
     //action
-    const newState = counterReducer(state, {type:'SET_VALUE',disableBtn: true, isDisabled: false, error: false })
+    const newState = counterReducer(state, {type:'SET_VALUE',payload:{disableBtn: true, isDisabled: false, error: false} })
     expect(newState.disableBtn).toBe(true)
     expect(newState.isDisabled).toBe(false)
     expect(newState.error).toBe(false)
@@ -58,6 +58,6 @@ test('reducer should disable button, when click "set" button', () => {
 
 test('reducer should set error, when some action will take place', () => {
     //action
-    const newState = counterReducer(state, {type:'SET_ERROR', error: true })
+    const newState = counterReducer(state, {type:'SET_ERROR', payload:{error: true }})
     expect(newState.error).toBe(true)
 })
