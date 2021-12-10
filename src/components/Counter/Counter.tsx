@@ -1,15 +1,16 @@
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 import s from "./counter.module.css"
 import {useDispatch} from "react-redux";
 import {useTypedSelector} from "../../Redux/redux-store";
-
 import {Button} from "@mui/material";
 import {changeCountAC, resetCountAC, setErrorAC} from "../../Redux/counter-reducer";
 
 
-export const Counter = () => {
+//так как компонент не принимает никаких проспсов, оборачивать его в React.memo не имеет смысла
+    export const Counter = () => {
+    console.log("COUNTER")
 
-    const value = useTypedSelector<number| string>(state => state.counter.value)
+    const value = useTypedSelector<number | string>(state => state.counter.value)
     const startValue = useTypedSelector<number>(state => state.counter.startValue)
     const maxValue = useTypedSelector<number>(state => state.counter.maxValue)
     const error = useTypedSelector<boolean>(state => state.counter.error)
@@ -19,15 +20,16 @@ export const Counter = () => {
     const dispatch = useDispatch()
 
 
-    const incrementValue = () => {
+    const incrementValue =  () => {
         if (value < maxValue) {
             dispatch((changeCountAC(+value + 1, false)))
             localStorage.setItem('counterValue', JSON.stringify(+value + 1))
         }
     }
-    const resetValue = () => {
+
+    const resetValue = useCallback( () => {
         dispatch((resetCountAC()))
-    }
+    },[dispatch])
 
 
     const buttonStyle = {
@@ -36,6 +38,7 @@ export const Counter = () => {
     }
 
     useEffect(() => {
+        console.log('use effect')
         if (value === maxValue) {
             dispatch(setErrorAC(true))
         } else {

@@ -23,9 +23,7 @@ export const counterReducer = (state: InitialStateType = initialState, action: A
 
         case "SET_INITIAL_VALUES":
             return {
-                ...state, ...action.payload
-            }
-
+                ...state, ...action.payload}
         case 'CHANGE_COUNT':
             return {...state, ...action.payload}
         case 'RESET_COUNT':
@@ -51,9 +49,9 @@ export const counterReducer = (state: InitialStateType = initialState, action: A
             return {
                 ...state,
                 value: state.startValue, ...action.payload
-             /*   isDisabled: action.isDisabled,
-                disableBtn: action.disableBtn,
-                error: action.error*/
+                /*   isDisabled: action.isDisabled,
+                   disableBtn: action.disableBtn,
+                   error: action.error*/
             }
         case 'SET_ERROR':
             return {

@@ -6,9 +6,8 @@ import {useDispatch} from "react-redux";
 import {setInitialValuesAC} from "./Redux/counter-reducer";
 
 
-
 const App = () => {
-
+    console.log("APP")
 
     const dispatch = useDispatch()
 

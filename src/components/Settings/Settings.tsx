@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from "react";
+import React, {ChangeEvent, useCallback} from "react";
 import s from './settings.module.css'
 import {useTypedSelector} from "../../Redux/redux-store";
 import {useDispatch} from "react-redux";
@@ -6,7 +6,9 @@ import {Button, TextField} from "@mui/material";
 import {changeMaxValueAC, changeStartValueAC, setErrorAC, setValueAC} from "../../Redux/counter-reducer";
 
 
-export const Settings = () => {
+//так как компонент не принимает никаких проспсов, оборачивать его в React.memo не имеет смысла
+    export const Settings = () => {
+    console.log("SETTINGS")
 
 
     const disableBtn = useTypedSelector<boolean>(state => state.counter.disableBtn)
@@ -17,27 +19,28 @@ export const Settings = () => {
     const dispatch = useDispatch()
 
 
-    const setSettingsHandler = () => {
+    const setSettingsHandler = useCallback( () => {
         dispatch(setValueAC(false, true, false))
         localStorage.setItem('Settings', JSON.stringify({'startValue': startValue, 'maxValue': maxValue}))
-    }
+    },[dispatch])
 
-    const onChangeMaxNumberHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const onChangeMaxNumberHandler = useCallback( (e: ChangeEvent<HTMLInputElement>) => {
         let value = e.currentTarget.valueAsNumber
         dispatch(changeMaxValueAC(value, true, false))
         dispatch(setErrorAC(false))
-    }
-    const onChangeStartNumberHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    },[dispatch])
+
+    const onChangeStartNumberHandler = useCallback( (e: ChangeEvent<HTMLInputElement>) => {
         let value = e.currentTarget.valueAsNumber
         dispatch(changeStartValueAC(value, true, false))
         dispatch(setErrorAC(false))
-    }
+    }, [dispatch])
 
 
 
     const buttonStyle = {
         backgroundColor: "#07575B", color: "#66A5AD", borderRadius: "20px",
-        boxShadow: "0px 1px 5px 2px #07575B"
+        boxShadow: "0 1px 5px 2px #07575B"
     }
 
     const errValue = maxValue === startValue || startValue! > maxValue! || startValue! < 0
@@ -55,7 +58,6 @@ export const Settings = () => {
                                    input: {
                                        width: "60px",
                                        height: "15px",
-
                                    }
                                }}
                     />

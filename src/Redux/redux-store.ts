@@ -10,7 +10,7 @@ let rootReducer = combineReducers({
 })
 
 let store = createStore(rootReducer)
-export type AppStoreType= typeof store
+export type AppStoreType = typeof store
 
 
 export const useTypedSelector: TypedUseSelectorHook<RootReducerType> = useSelector;
